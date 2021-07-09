@@ -15,24 +15,20 @@
         </div>
         <br>
         <div class="content">-生年月日-</div>
-        <select v-model="year">
+        <select>
           <option v-for="(n,key) in 101" :key="key" :value="n+1920">{{ n + 1920 | nengo }}</option>
         </select> 年
-        <select v-model="month">
+        <select>
           <option v-for="(n,key) in 12" :key="key" value="n">{{ n }}</option>
         </select> 月
-        <select v-model="day">
-          <option v-for="(n,key) in 31" :key=key :value="n">{{ n }}</option>
+        <select>
+          <option v-for="(n,key) in 31" :key="key" :value="n">{{ n }}</option>
         </select> 日
       </div>
     </div>
-    <button @click="nextButton">次へ進む   ➤</button>
 
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/Test">テスト</router-link>|
-      <router-link to="/user/1">ユザー①</router-link>
+      <router-link class="btn" to="/page2">次へ進む   ➤</router-link> 
     </div>
     <router-view/>
   </div>
@@ -40,11 +36,12 @@
 </template>
 
 <script>
-new Vue({
-  el: "#app",
-  data: {
+export default {
+  data() {
+    return {
     radio: '',
     nextButton: '',
+  };
   },
   filters: {
     nengo(y) {
@@ -59,9 +56,10 @@ new Vue({
         result = `${y} (大正${y - 1911}年)`;
       }
       return result;
-    }
-  }
-})
+    },
+  },
+  
+};
 </script>
 
 <style>
@@ -104,7 +102,7 @@ h3{
   margin-bottom: 25px;
 }
 
-button{
+.btn{
   background-color: rgb(76, 194, 154);
   border: none;
   color: aliceblue;
@@ -118,6 +116,5 @@ button{
 button:hover{
   background-color: rgb(68, 175, 139);;
 }
-
 
 </style>
