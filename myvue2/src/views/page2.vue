@@ -71,8 +71,8 @@
           >
         </div>
       </div>
-      <router-link class="btn" to="/">前へ戻る ➤</router-link>
-      <router-link class="btn" to="/page3">次へ進む ➤</router-link>
+      <router-link class="btn1" to="/">前へ戻る ➤</router-link>
+      <router-link class="btn2" to="/page3">次へ進む ➤</router-link>
     </div>
   </div>
 </template>
@@ -100,3 +100,33 @@ export default {
   },
 };
 </script>
+
+<style>
+.btn1 {
+  background-color: rgb(76, 194, 154);
+  border: none;
+  color: aliceblue;
+  padding: 10px;
+  position: absolute;
+  top: 110%;
+  left: 35%;
+  border-radius: 5px;
+}
+.btn2 {
+  background-color: rgb(76, 194, 154);
+  border: none;
+  color: aliceblue;
+  padding: 10px;
+  position: absolute;
+  top: 110%;
+  left: 54%;
+  border-radius: 5px;
+}
+
+.btn1:hover {
+  background-color: rgb(68, 175, 139);
+}
+.btn2:hover {
+  background-color: rgb(68, 175, 139);
+}
+</style>

@@ -13,8 +13,8 @@
           <textarea  cols="88" rows="20"></textarea>
         </div>
         
-  <router-link class="btn" to="page2">前へ戻る   ➤</router-link> 
-  <router-link class="btn" to="/user">次へ進む   ➤</router-link> 
+  <router-link class="btn1" to="page2">前へ戻る   ➤</router-link> 
+  <router-link class="btn2" to="/user">次へ進む   ➤</router-link> 
   </div>
     </div>
   </div>
