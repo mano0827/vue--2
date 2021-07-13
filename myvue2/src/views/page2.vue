@@ -7,43 +7,47 @@
       </div>
       <div class="main">
         <div v-show="show >= 1" class="content">
-          <p>現在生命保険に加入されていますか?</p>
+          <p>現在、生命保険に加入されていますか?</p>
           <label
             ><input
               type="radio"
               v-model="radio"
-              value="yes"
+              value="はい"
               @click="next()"
+               @change="q1"
             />はい</label
           >
           <label
             ><input
               type="radio"
               v-model="radio"
-              value="no"
+              value="いいえ"
               @click="next()"
+               @change="q1"
             />いいえ</label
           >
         </div>
         <br />
         <div v-show="show >= 2" class="content">
           <p>
-            現在入院中ですか。または、最近3ヶ月以内に医師の診察、検査の結果、入院、手術を進められたことはありますか？
+            現在入院中ですか。または、最近3ヶ月以内に医師の診察・検査の結果、入院、手術を進められたことはありますか？
           </p>
           <label
             ><input
               type="radio"
               v-model="radio2"
-              value="yes"
+              value="はい"
               @click="next()"
+               @change="q2"
             />はい</label
           >
           <label
             ><input
               type="radio"
               v-model="radio2"
-              value="no"
+              value="いいえ"
               @click="next()"
+               @change="q2"
             />いいえ</label
           >
         </div>
@@ -57,16 +61,18 @@
             ><input
               type="radio"
               v-model="radio3"
-              value="yes"
-              @click="next()"
+              value="はい"
+              @click="next()" 
+              @change="q3"
             />はい</label
           >
           <label
             ><input
               type="radio"
               v-model="radio3"
-              value="no"
+              value="いいえ"
               @click="next()"
+              @change="q3"
             />いいえ</label
           >
         </div>
@@ -97,6 +103,15 @@ export default {
         this.show = 3;
       }
     },
+    q1(e){
+      this.$store.commit('q1',e.target.value)
+    },
+    q2(e){
+      this.$store.commit('q2',e.target.value)
+    },
+    q3(e){
+      this.$store.commit('q3',e.target.value)
+    },
   },
 };
 </script>
@@ -109,7 +124,7 @@ export default {
   padding: 10px;
   position: absolute;
   top: 110%;
-  left: 35%;
+  left: 34%;
   border-radius: 5px;
 }
 .btn2 {
@@ -119,7 +134,7 @@ export default {
   padding: 10px;
   position: absolute;
   top: 110%;
-  left: 54%;
+  left: 53%;
   border-radius: 5px;
 }
 

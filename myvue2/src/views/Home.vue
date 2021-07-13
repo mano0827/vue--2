@@ -10,19 +10,22 @@
 
         <div class="content">-性別-</div>
         <div class="radio">
-          <input v-model="radio" type="radio" value="男性">男性
-          <input v-model="radio" type="radio" value="女性">女性
+          <input v-model="radio" type="radio" @change="answerGender" value="男性">男性
+          <input v-model="radio" type="radio" value="女性" @change="answerGender">女性
         </div>
         <br>
         <div class="content">-生年月日-</div>
-        <select>
-          <option v-for="(n,key) in 101" :key="key" :value="n+1920">{{ n + 1920 | nengo }}</option>
+        <select @change="answerYear" name="year">
+          <option hidden>年</option>
+          <option v-for="(year,key) in 101" :key="key" :value="year+1920" >{{ year + 1920 | nengo }}</option>
         </select> 年
-        <select>
-          <option v-for="(n,key) in 12" :key="key" value="n">{{ n }}</option>
+        <select @change="answerMonth" name='month'>
+          <option hidden>月</option>
+          <option v-for="(month,key) in 12" :key="key" :value="month" >{{ month }}</option>
         </select> 月
-        <select>
-          <option v-for="(n,key) in 31" :key="key" :value="n">{{ n }}</option>
+        <select @change="answerDay" name='day'>
+          <option hidden>日</option>
+          <option v-for="(day,key) in 31" :key="key" :value="day" >{{ day }}</option>
         </select> 日
       </div>
     </div>
@@ -55,10 +58,26 @@ export default {
       return result;
     },
   },
+  methods:{
+    answerGender(e){
+      this.$store.commit('answerGender',e.target.value)
+    },
+    answerYear(e){
+      this.$store.commit('answerYear',e.target.value)
+    },
+    answerMonth(e){
+      this.$store.commit('answerMonth',e.target.value)
+    },
+    answerDay(e){
+      this.$store.commit('answerDay',e.target.value)
+    },
+  }
 }
 </script>
 
 <style>
+
+
 
 .body{
   position: relative;
@@ -66,7 +85,6 @@ export default {
   top:50px;
   border: solid 1px #4ec4d3;
   width:700px;
-
 }
 
 h3{

@@ -10,7 +10,7 @@
 
         <div class="content">-ご相談内容-</div>
         <div class="textara">
-          <textarea  cols="88" rows="20"></textarea>
+          <textarea  cols="88" rows="20" @change="answers"></textarea>
         </div>
         
   <router-link class="btn1" to="page2">前へ戻る   ➤</router-link> 
@@ -20,3 +20,15 @@
   </div>
  
 </template>
+
+
+<script>
+
+export default {
+  methods:{
+    answers(e){
+      this.$store.commit('answers',e.target.value)
+    }
+  }}
+
+</script>
