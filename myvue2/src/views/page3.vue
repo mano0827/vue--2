@@ -1,0 +1,34 @@
+<template>
+  <div class="page3">
+     <div class="body">
+
+      <div class="title">
+        <div class="step">STEP3</div>
+        <h3>ご相談内容をご記入ください</h3>
+      </div>
+      <div class="main">
+
+        <div class="content">-ご相談内容-</div>
+        <div class="textara">
+          <textarea  cols="88" rows="20" @change="answers"></textarea>
+        </div>
+        
+  <router-link class="btn1" to="page2">前へ戻る   ➤</router-link> 
+  <router-link class="btn2" to="/user">次へ進む   ➤</router-link> 
+  </div>
+    </div>
+  </div>
+ 
+</template>
+
+
+<script>
+
+export default {
+  methods:{
+    answers(e){
+      this.$store.commit('answers',e.target.value)
+    }
+  }}
+
+</script>
